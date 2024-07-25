@@ -1,0 +1,199 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset and base styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom styles for Navbar and other components */
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb; /* Tailwind gray-200 */
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar-item {
+  color: #1f2937; /* Tailwind gray-800 */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.navbar-item:hover {
+  text-decoration: underline;
+  color: #2563eb; /* Tailwind blue-600 */
+}
+
+.navbar-item-blue {
+  color: white;
+}
+
+.navbar-item-blue:hover {
+  background-color: #2563eb; /* Tailwind blue-800 */
+  color: white;
+}
+
+.fixed-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.bg-custom-blue {
+  background-color: #1e3a8a; /* Tailwind blue-900 */
+}
+
+.search-box {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tailwind shadow-lg */
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db; /* Tailwind gray-300 */
+  border-radius: 4px;
+}
+
+.search-box input::placeholder {
+  color: #6b7280; /* Tailwind gray-500 */
+}
+
+/* Additional spacing and layout adjustments */
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.mt-24 {
+  margin-top: 6rem;
+}
+
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* Slideshow specific styles */
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slideshow-image {
+  display: block;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.left-arrow, .right-arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.left-arrow {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.right-arrow {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.left-arrow:hover, .right-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dots-container {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}

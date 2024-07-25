@@ -1,0 +1,128 @@
+/* Login.css */
+
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Outer container */
+.outer-container {
+  background-image: url("../images/bgfinal.jpeg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Login container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 600px; /* Adjust max-width as needed */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Semi-transparent white background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Styling for each box */
+.box {
+  flex: 1;
+  padding: 1rem;
+}
+
+.left-box {
+  text-align: center;
+  color: #333;
+  background-color: beige(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Semi-transparent white background */
+  padding: 2rem;
+  border-right: 2px solid #ccc; /* Vertical partition line */
+  /* background-image: url('/Users/abhijitbiswal/Desktop/instant arogya/instant-arogya/src/images/bgr.jpeg'); */
+}
+
+.left-box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.left-box p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.right-box {
+  text-align: center;
+  padding: 2rem;
+  background-image: url("../images/bgr.jpeg");
+}
+
+.right-box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: beige;
+}
+
+.right-box form {
+  margin-top: 1rem;
+  color: #007bff;
+}
+
+.right-box label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.right-box input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.right-box button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.right-box button:hover {
+  background-color: #0056b3;
+}
+
+.right-box p {
+  margin-top: 1rem;
+}
+
+.right-box p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.right-box p a:hover {
+  text-decoration: underline;
+}
+
+/* Partition between left and right box */
+.partition {
+  width: 2px;
+  background-color: #ccc;
+}
