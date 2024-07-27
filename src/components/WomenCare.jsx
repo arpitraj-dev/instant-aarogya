@@ -11,8 +11,7 @@ import axios from "axios";
 import WC1 from "../images/WC1.webp";
 import WC2 from "../images/WC2.webp";
 
-const WomenCare = () => {
-  const [cart, setCart] = useState([]);
+const WomenCare = ({ cart, setCart }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [pincode, setPincode] = useState("");
   const [products, setProducts] = useState(null);
@@ -82,7 +81,9 @@ const WomenCare = () => {
             </MenuItem>
           </Menu>
           <IconButton color="inherit">
-            <ShoppingCartIcon /> - {cart.length}
+            <Link to="/cart">
+              <ShoppingCartIcon /> - {cart.length}
+            </Link>
           </IconButton>
           <button className="bg-blue-600 text-white px-4 py-2 rounded">
             Login

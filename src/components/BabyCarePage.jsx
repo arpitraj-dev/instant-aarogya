@@ -17,8 +17,7 @@ import BC6 from "../images/BC6.webp";
 import BC7 from "../images/BC7.webp";
 import BC8 from "../images/BC8.webp"; 
 
-const BabyCarePage = () => {
-  const [cart, setCart] = useState([]);
+const BabyCarePage = ({ cart, setCart }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [pincode, setPincode] = useState("");
   const [products, setProducts] = useState(null);
@@ -88,7 +87,9 @@ const BabyCarePage = () => {
             </MenuItem>
           </Menu>
           <IconButton color="inherit">
-            <ShoppingCartIcon /> - {cart.length}
+            <Link to="/cart">
+              <ShoppingCartIcon /> - {cart.length}
+            </Link>
           </IconButton>
           <button className="bg-blue-600 text-white px-4 py-2 rounded">
             Login

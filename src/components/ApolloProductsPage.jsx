@@ -43,11 +43,10 @@ const defaultProducts = [
   { img: AP16, description: "Aqua Blue Handwash", price: "Rs 100" },
 ];
 
-const ApolloProductsPage = () => {
+const ApolloProductsPage = ({ cart, setCart }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [pincode, setPincode] = useState("");
-  const [cart, setCart] = useState([]);
-  const [products, setProducts] = useState(defaultProducts);
+  const [products, setProducts] = useState(null);
 
   const handleAddressClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -61,8 +60,9 @@ const ApolloProductsPage = () => {
     setPincode(event.target.value);
   };
 
-  const handleAddToCart = (product) => {
+  const addToCart = (product) => {
     setCart([...cart, product]);
+    alert(`${product.name} added to cart`);
   };
 
   useEffect(() => {
@@ -111,7 +111,9 @@ const ApolloProductsPage = () => {
             </MenuItem>
           </Menu>
           <IconButton color="inherit">
-            <ShoppingCartIcon />
+            <Link to="/cart">
+              <ShoppingCartIcon /> - {cart.length}
+            </Link>
           </IconButton>
           <button className="bg-blue-600 text-white px-4 py-2 rounded">
             Login
@@ -207,26 +209,26 @@ const ApolloProductsPage = () => {
 
       {/* Product Grid */}
       <div className="mt-48 p-4">
+        <h2 className="text-2xl font-bold mb-4">Arogya Products</h2>
         <div className="grid grid-cols-4 gap-4">
-          {products.map((product, index) => (
-            <div key={index} className="bg-white p-4 rounded-lg shadow">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-32 object-cover rounded"
-              />
-              <p className="mt-2 font-bold">{product.name}</p>
-              <p className="mt-2 text-blue-600 font-bold">
-                Rs. {product.price}
-              </p>
-              <button
-                className="mt-2 bg-blue-600 text-white px-4 py-2 rounded"
-                onClick={() => handleAddToCart(product)}
-              >
-                Add to Cart
-              </button>
-            </div>
-          ))}
+          {products &&
+            products.map((product) => (
+              <div key={product.id} className="text-center">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="mx-auto"
+                />
+                <p className="mt-2">{product.name}</p>
+                <p className="font-bold">Rs.{product.price}</p>
+                <button
+                  onClick={() => addToCart(product)}
+                  className="bg-blue-600 text-white px-4 py-2 rounded mt-2"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            ))}
         </div>
       </div>
     </div>

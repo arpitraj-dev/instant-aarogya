@@ -11,8 +11,7 @@ import axios from "axios";
 import AY1 from "../images/AY1.webp";
 import AY2 from "../images/AY2.webp";
 
-const Ayurveda = () => {
-  const [cart, setCart] = useState([]);
+const Ayurveda = ({ cart, setCart }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [pincode, setPincode] = useState("");
   const [products, setProducts] = useState(null);
@@ -82,7 +81,9 @@ const Ayurveda = () => {
             </MenuItem>
           </Menu>
           <IconButton color="inherit">
-            <ShoppingCartIcon /> - {cart.length}
+            <Link to="/cart">
+              <ShoppingCartIcon /> - {cart.length}
+            </Link>
           </IconButton>
           <button className="bg-blue-600 text-white px-4 py-2 rounded">
             Login

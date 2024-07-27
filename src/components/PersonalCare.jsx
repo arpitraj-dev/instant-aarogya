@@ -11,8 +11,7 @@ import axios from "axios";
 import PC1 from "../images/PC1.webp";
 import PC2 from "../images/PC2.webp";
 
-const PersonalCare = () => {
-  const [cart, setCart] = useState([]);
+const PersonalCare = ({ cart, setCart }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [pincode, setPincode] = useState("");
   const [products, setProducts] = useState(null);
@@ -82,7 +81,9 @@ const PersonalCare = () => {
             </MenuItem>
           </Menu>
           <IconButton color="inherit">
-            <ShoppingCartIcon /> - {cart.length}
+            <Link to="/cart">
+              <ShoppingCartIcon /> - {cart.length}
+            </Link>
           </IconButton>
           <button className="bg-blue-600 text-white px-4 py-2 rounded">
             Login

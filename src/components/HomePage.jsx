@@ -31,19 +31,18 @@ import sbc11 from "../images/sbc11.webp";
 import ad1 from "../images/ad1.webp"; // Importing ad1 image
 
 const products = [
-  { img: sc1, desc: "2Baconil 2mg Nicotine Icy Mint", price: "Rs 65.1" },
-  { img: sc2, desc: "2Baconil 2mg Chewing Gum", price: "Rs 65.1" },
-  { img: sc3, desc: "2Baconil TTS20 14mg/24h", price: "Rs 800" },
-  { img: sc4, desc: "2Baconil TTS10 7mg/24h", price: "Rs 716" },
-  { img: sc5, desc: "2Baconil TTS30 21mg Patches", price: "Rs 1008" },
+  { img: sc1, desc: "2Baconil 2mg Nicotine Icy Mint", price: 65.1 },
+  { img: sc2, desc: "2Baconil 2mg Chewing Gum", price: 65.1 },
+  { img: sc3, desc: "2Baconil TTS20 14mg/24h", price: 800 },
+  { img: sc4, desc: "2Baconil TTS10 7mg/24h", price: 716 },
+  { img: sc5, desc: "2Baconil TTS30 21mg Patches", price: 1008 },
 ];
 
-const HomePage = () => {
+const HomePage = ({ cart, setCart }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [pincode, setPincode] = useState("");
   const [searchText, setSearchText] = useState("");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [cart, setCart] = useState([]);
 
   const handleAddressClick = (event) => {
     setAnchorEl(event.currentTarget);

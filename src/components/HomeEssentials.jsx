@@ -11,8 +11,7 @@ import axios from "axios";
 import HE1 from "../images/HE1.webp";
 import HE2 from "../images/HE2.webp";
 
-const HomeEssentials = () => {
-  const [cart, setCart] = useState([]);
+const HomeEssentials = ({ cart, setCart }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [pincode, setPincode] = useState("");
   const [products, setProducts] = useState(null);
@@ -82,7 +81,9 @@ const HomeEssentials = () => {
             </MenuItem>
           </Menu>
           <IconButton color="inherit">
-            <ShoppingCartIcon /> - {cart.length}
+            <Link to="/cart">
+              <ShoppingCartIcon /> - {cart.length}
+            </Link>
           </IconButton>
           <button className="bg-blue-600 text-white px-4 py-2 rounded">
             Login

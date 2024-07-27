@@ -37,18 +37,42 @@ function App() {
             <Route path="/ambulance" element={<Ambulance />} />
             <Route path="/doctors" element={<Doctor />} />
             <Route path="/lab-tests" element={<Lab />} />
-            <Route path="/babycare" element={<BabyCarePage />} />
-            <Route path="/arogyaproducts" element={<ApolloProductsPage />} />
+            <Route
+              path="/babycare"
+              element={<BabyCarePage cart={cart} setCart={setCart} />}
+            />
+            <Route
+              path="/arogyaproducts"
+              element={<ApolloProductsPage cart={cart} setCart={setCart} />}
+            />
             <Route
               path="/nutritional-drinks"
               element={<Drinks cart={cart} setCart={setCart} />}
             />
-            <Route path="/women-care" element={<WomenCare />} />
-            <Route path="/personal-care" element={<PersonalCare />} />
-            <Route path="/ayurveda" element={<Ayurveda />} />
-            <Route path="/health-devices" element={<HealthDevices />} />
-            <Route path="/home-essentials" element={<HomeEssentials />} />
-            <Route path="/health-condition" element={<HealthCondition />} />
+            <Route
+              path="/women-care"
+              element={<WomenCare cart={cart} setCart={setCart} />}
+            />
+            <Route
+              path="/personal-care"
+              element={<PersonalCare cart={cart} setCart={setCart} />}
+            />
+            <Route
+              path="/ayurveda"
+              element={<Ayurveda cart={cart} setCart={setCart} />}
+            />
+            <Route
+              path="/health-devices"
+              element={<HealthDevices cart={cart} setCart={setCart} />}
+            />
+            <Route
+              path="/home-essentials"
+              element={<HomeEssentials cart={cart} setCart={setCart} />}
+            />
+            <Route
+              path="/health-condition"
+              element={<HealthCondition cart={cart} setCart={setCart} />}
+            />
             <Route
               path="/cart"
               element={<CartPage cart={cart} setCart={setCart} />}

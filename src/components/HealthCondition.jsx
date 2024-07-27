@@ -11,8 +11,7 @@ import axios from "axios";
 import HC1 from "../images/HC1.webp";
 import HC2 from "../images/HC2.webp";
 
-const HealthCondition = () => {
-  const [cart, setCart] = useState([]);
+const HealthCondition = ({ cart, setCart }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [pincode, setPincode] = useState("");
   const [products, setProducts] = useState(null);
@@ -82,7 +81,9 @@ const HealthCondition = () => {
             </MenuItem>
           </Menu>
           <IconButton color="inherit">
-            <ShoppingCartIcon /> - {cart.length}
+            <Link to="/cart">
+              <ShoppingCartIcon /> - {cart.length}
+            </Link>
           </IconButton>
           <button className="bg-blue-600 text-white px-4 py-2 rounded">
             Login
