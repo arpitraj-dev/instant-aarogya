@@ -38,10 +38,7 @@ router.get("/nutritionaldrinksandsupplements", async (req, res) => {
 });
 
 router.get("/womencare", async (req, res) => {
-  const products = await db
-    .collection("WomenCare")
-    .find({})
-    .toArray();
+  const products = await db.collection("WomenCare").find({}).toArray();
   return res.status(200).send({
     products,
   });
@@ -70,6 +67,13 @@ router.get("/healthdevices", async (req, res) => {
 
 router.get("/healthcondition", async (req, res) => {
   const products = await db.collection("HealthCondition").find({}).toArray();
+  return res.status(200).send({
+    products,
+  });
+});
+
+router.get("/homeessentials", async (req, res) => {
+  const products = await db.collection("HomeEssentials").find({}).toArray();
   return res.status(200).send({
     products,
   });
