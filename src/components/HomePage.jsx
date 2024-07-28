@@ -43,6 +43,7 @@ const HomePage = ({ cart, setCart }) => {
   const [pincode, setPincode] = useState("");
   const [searchText, setSearchText] = useState("");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedAddress, setSelectedAddress] = useState("");
 
   const handleAddressClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -88,6 +89,10 @@ const HomePage = ({ cart, setCart }) => {
 
     return () => clearInterval(interval); // Clear interval on component unmount
   }, [images.length]);
+  const handleAddressSelect = (address) => {
+    setSelectedAddress(address);
+    handleAddressClose();
+  };
 
   return (
     <div>
@@ -106,16 +111,82 @@ const HomePage = ({ cart, setCart }) => {
             onClick={handleAddressClick}
           >
             <LocationOnIcon className="mr-1" />
-            Select Address
+            {selectedAddress ? selectedAddress : "Select Address"}
           </button>
           <Menu
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
             onClose={handleAddressClose}
           >
-            <MenuItem onClick={handleAddressClose}>
-              Use Current Location
+            <MenuItem
+              onClick={() =>
+                handleAddressSelect(
+                  "Abhijit (41, 2nd cross, Kumarswamy Layout, Bengaluru)"
+                )
+              }
+            >
+              <div>
+                Abhijit
+                <br />
+                <a
+                  href="https://maps.app.goo.gl/6khvh7EKSHHKhF6G9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  (41, 2nd cross, Kumarswamy Layout, Bengaluru)
+                </a>
+              </div>
             </MenuItem>
+            <MenuItem
+              onClick={() =>
+                handleAddressSelect("Aastha (GK Comforts girls pg, Bengaluru)")
+              }
+            >
+              <div>
+                Aastha
+                <br />
+                <a
+                  href="https://maps.app.goo.gl/iXYcRX96TwNgsEveA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  (GK Comforts girls pg, Bengaluru)
+                </a>
+              </div>
+            </MenuItem>
+            <MenuItem
+              onClick={() =>
+                handleAddressSelect("Arpit (Stanza Living Boys pg, Bengaluru)")
+              }
+            >
+              <div>
+                Arpit
+                <br />
+                <a
+                  href="https://maps.app.goo.gl/cxkdro6crY4pZ1Wk8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  (Stanza Living Boys pg, Bengaluru)
+                </a>
+              </div>
+            </MenuItem>
+            <MenuItem
+              onClick={() => handleAddressSelect("Ananya (Maya Indraprashta)")}
+            >
+              <div>
+                Ananya
+                <br />
+                <a
+                  href="https://maps.app.goo.gl/UoDyaX8xLuEh72916"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  (Maya Indraprashta)
+                </a>
+              </div>
+            </MenuItem>
+            <MenuItem>Or</MenuItem>
             <MenuItem>
               <TextField
                 label="Enter Pincode"
