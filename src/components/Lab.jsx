@@ -2,6 +2,127 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const styles = {
+    container: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100%",
+      overflow: "hidden",
+      position: "relative",
+    },
+    formContainer: {
+      width: "100%",
+      maxWidth: "900px",
+      padding: "2px",
+      border: "1px solid #ccc",
+      borderRadius: "5px",
+      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+      backgroundColor: "rgba(255, 255, 255, 0.5)",
+      color: "#333",
+      overflow: "hidden",
+    },
+    scrollableContainer: {
+      maxHeight: "100vh",
+      overflowY: "auto",
+      paddingRight: "0px",
+    },
+    heading: {
+      textAlign: "center",
+      marginBottom: "20px",
+      color: "#007bff",
+    },
+    inputContainer: {
+      marginBottom: "3px",
+    },
+    label: {
+      display: "flex",
+      flexDirection: "column",
+      fontSize: "14px",
+      marginBottom: "5px",
+    },
+    input: {
+      padding: "8px",
+      fontSize: "14px",
+      border: "1px solid #ccc",
+      borderRadius: "3px",
+    },
+    select: {
+      padding: "8px",
+      fontSize: "14px",
+      border: "1px solid #ccc",
+      borderRadius: "3px",
+    },
+    testsGrid: {
+      marginTop: "20px",
+    },
+    testsContainer: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+      gap: "10px",
+    },
+    testItem: {
+      padding: "10px",
+      border: "1px solid #ccc",
+      borderRadius: "5px",
+      backgroundColor: "#f0f0f0",
+    },
+    testsAvailable: {
+      marginTop: "10px",
+      fontSize: "14px",
+      color: "#007bff",
+    },
+    submitButton: {
+      width: "100%",
+      padding: "10px",
+      backgroundColor: "#007bff",
+      color: "white",
+      border: "none",
+      borderRadius: "3px",
+      fontSize: "16px",
+      cursor: "pointer",
+      textAlign: "center",
+      marginTop: "20px",
+    },
+    cart: {
+      marginTop: "20px",
+      border: "1px solid #ccc",
+      padding: "10px",
+      borderRadius: "5px",
+      backgroundColor: "#f0f0f0",
+    },
+    video: {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      minWidth: "100%",
+      minHeight: "100%",
+      width: "auto",
+      height: "auto",
+      zIndex: "-1",
+      backgroundSize: "fill",
+      backgroundPosition: "center",
+      objectFit: "fill",
+    },
+    cartadd: {
+      marginTop: "20px",
+      border: "1px solid #ccc",
+      padding: "10px",
+      borderRadius: "5px",
+      backgroundColor: "#f0f0f0",
+      backgroundColor: "#007bff",
+      color: "white",
+      border: "none",
+      borderRadius: "3px",
+      fontSize: "16px",
+      cursor: "pointer",
+      textAlign: "center",
+      marginTop: "20px",
+    },
+  };
+
+
 function BookLabAppointment() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -178,125 +299,6 @@ function BookLabAppointment() {
       </div>
     </div>
   );
-
-  const styles = {
-    container: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      height: "100%",
-      overflow: "hidden",
-      position: "relative",
-    },
-    formContainer: {
-      width: "100%",
-      maxWidth: "900px",
-      padding: "2px",
-      border: "1px solid #ccc",
-      borderRadius: "5px",
-      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-      backgroundColor: "rgba(255, 255, 255, 0.5)",
-      color: "#333",
-      overflow: "hidden",
-    },
-    scrollableContainer: {
-      maxHeight: "100vh",
-      overflowY: "auto",
-      paddingRight: "0px",
-    },
-    heading: {
-      textAlign: "center",
-      marginBottom: "20px",
-      color: "#007bff",
-    },
-    inputContainer: {
-      marginBottom: "3px",
-    },
-    label: {
-      display: "flex",
-      flexDirection: "column",
-      fontSize: "14px",
-      marginBottom: "5px",
-    },
-    input: {
-      padding: "8px",
-      fontSize: "14px",
-      border: "1px solid #ccc",
-      borderRadius: "3px",
-    },
-    select: {
-      padding: "8px",
-      fontSize: "14px",
-      border: "1px solid #ccc",
-      borderRadius: "3px",
-    },
-    testsGrid: {
-      marginTop: "20px",
-    },
-    testsContainer: {
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-      gap: "10px",
-    },
-    testItem: {
-      padding: "10px",
-      border: "1px solid #ccc",
-      borderRadius: "5px",
-      backgroundColor: "#f0f0f0",
-    },
-    testsAvailable: {
-      marginTop: "10px",
-      fontSize: "14px",
-      color: "#007bff",
-    },
-    submitButton: {
-      width: "100%",
-      padding: "10px",
-      backgroundColor: "#007bff",
-      color: "white",
-      border: "none",
-      borderRadius: "3px",
-      fontSize: "16px",
-      cursor: "pointer",
-      textAlign: "center",
-      marginTop: "20px",
-    },
-    cart: {
-      marginTop: "20px",
-      border: "1px solid #ccc",
-      padding: "10px",
-      borderRadius: "5px",
-      backgroundColor: "#f0f0f0",
-    },
-    video: {
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      minWidth: "100%",
-      minHeight: "100%",
-      width: "auto",
-      height: "auto",
-      zIndex: "-1",
-      backgroundSize: "fill",
-      backgroundPosition: "center",
-      objectFit: "fill",
-    },
-    cartadd: {
-      marginTop: "20px",
-      border: "1px solid #ccc",
-      padding: "10px",
-      borderRadius: "5px",
-      backgroundColor: "#f0f0f0",
-      backgroundColor: "#007bff",
-      color: "white",
-      border: "none",
-      borderRadius: "3px",
-      fontSize: "16px",
-      cursor: "pointer",
-      textAlign: "center",
-      marginTop: "20px",
-    },
-  };
 }
+  
 export default BookLabAppointment;
