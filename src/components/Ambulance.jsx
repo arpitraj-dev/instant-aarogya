@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
-import './Ambulance.css'; // Ensure this is imported
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import "./Ambulance.css"; // Ensure this is imported
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Ambulance() {
-  const [location, setLocation] = useState('');
-  const [ambulanceType, setAmbulanceType] = useState('');
-  const [dateTime, setDateTime] = useState('');
+  const [location, setLocation] = useState("");
+  const [ambulanceType, setAmbulanceType] = useState("");
+  const [dateTime, setDateTime] = useState("");
+
+  const handleSubmit = async () => {
+    await axios.post("http://localhost:8080/ambulance/appointment", {
+      location,
+      typeofambulance: ambulanceType,
+      timestamp: dateTime,
+    });
+    alert(`Scheduled Ambulance at: ${dateTime}`);
+  };
 
   return (
     <div style={styles.background}>
@@ -61,7 +70,7 @@ function Ambulance() {
           <button
             style={styles.submitButton}
             className="submit-button"
-            onClick={() => alert('Ambulance Scheduled!')}
+            onClick={handleSubmit}
           >
             Schedule Ambulance
           </button>
@@ -73,87 +82,87 @@ function Ambulance() {
 
 const styles = {
   background: {
-    position: 'relative',
-    height: '100vh',
-    width: '100vw',
-    overflow: 'hidden',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    position: "relative",
+    height: "100vh",
+    width: "100vw",
+    overflow: "hidden",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   video: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    minWidth: '100%',
-    minHeight: '100%',
-    width: 'auto',
-    height: 'auto',
-    zIndex: '-1',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    objectFit: 'cover',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    minWidth: "100%",
+    minHeight: "100%",
+    width: "auto",
+    height: "auto",
+    zIndex: "-1",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    objectFit: "cover",
   },
   overlay: {
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    right: '0',
-    bottom: '0',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    position: "absolute",
+    top: "0",
+    left: "0",
+    right: "0",
+    bottom: "0",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   ambulanceContainer: {
-    width: '300px',
-    padding: '20px',
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    backgroundColor: '#f9f9f9',
+    width: "300px",
+    padding: "20px",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    backgroundColor: "#f9f9f9",
   },
   heading: {
-    textAlign: 'center',
-    marginBottom: '20px',
+    textAlign: "center",
+    marginBottom: "20px",
   },
   dropdownContainer: {
-    marginBottom: '15px',
+    marginBottom: "15px",
   },
   label: {
-    display: 'flex',
-    flexDirection: 'column',
-    fontSize: '14px',
+    display: "flex",
+    flexDirection: "column",
+    fontSize: "14px",
   },
   select: {
-    marginTop: '5px',
-    padding: '8px',
-    fontSize: '14px',
-    border: '1px solid #ccc',
-    borderRadius: '3px',
+    marginTop: "5px",
+    padding: "8px",
+    fontSize: "14px",
+    border: "1px solid #ccc",
+    borderRadius: "3px",
   },
   input: {
-    marginTop: '5px',
-    padding: '8px',
-    fontSize: '14px',
-    border: '1px solid #ccc',
-    borderRadius: '3px',
+    marginTop: "5px",
+    padding: "8px",
+    fontSize: "14px",
+    border: "1px solid #ccc",
+    borderRadius: "3px",
   },
   submitButton: {
-    width: '100%',
-    padding: '10px',
-    backgroundColor: '#007bff',
-    color: 'white',
-    border: 'none',
-    borderRadius: '3px',
-    fontSize: '16px',
-    cursor: 'pointer',
-    textAlign: 'center',
-    animation: 'pulse 2s infinite',
+    width: "100%",
+    padding: "10px",
+    backgroundColor: "#007bff",
+    color: "white",
+    border: "none",
+    borderRadius: "3px",
+    fontSize: "16px",
+    cursor: "pointer",
+    textAlign: "center",
+    animation: "pulse 2s infinite",
   },
   submitButtonHover: {
-    backgroundColor: '#0056b3',
+    backgroundColor: "#0056b3",
   },
 };
 

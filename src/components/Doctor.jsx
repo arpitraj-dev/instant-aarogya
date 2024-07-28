@@ -1,31 +1,46 @@
-import React, { useState } from 'react';
-import './doctor.css';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import "./doctor.css";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 function BookAppointment() {
-  const [disease, setDisease] = useState('');
-  const [location, setLocation] = useState('');
-  const [selectedDoctor, setSelectedDoctor] = useState('');
-  const [dateTime, setDateTime] = useState('');
+  const [disease, setDisease] = useState("");
+  const [location, setLocation] = useState("");
+  const [selectedDoctor, setSelectedDoctor] = useState("");
+  const [dateTime, setDateTime] = useState("");
 
   const diseases = [
-    { name: 'Piles', duration: '4 days' },
-    { name: 'Fever', duration: '2 days' },
-    { name: 'Diabetes', duration: 'Chronic' },
-    { name: 'Headache', duration: 'Intermittent' },
-    { name: 'Back Pain', duration: 'Chronic' },
+    { name: "Piles", duration: "4 days" },
+    { name: "Fever", duration: "2 days" },
+    { name: "Diabetes", duration: "Chronic" },
+    { name: "Headache", duration: "Intermittent" },
+    { name: "Back Pain", duration: "Chronic" },
+    { name: "Common infectious", duration: "7 days" },
   ];
 
   const doctors = [
-    { name: 'Dr. John Doe', specialization: 'Cardiologist' },
-    { name: 'Dr. Jane Smith', specialization: 'Dermatologist' },
-    { name: 'Dr. Emily Johnson', specialization: 'Pediatrician' },
+    { name: "Dr. John Doe", specialization: "Cardiologist" },
+    { name: "Dr. Jane Smith", specialization: "Dermatologist" },
+    { name: "Dr. Emily Johnson", specialization: "Pediatrician" },
+    { name: "Dr. Sourav Kunar", specialization: "Neurologist" },
+    { name: "Dr. Sameer Raj", specialization: "Nephrologist" },
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const { data } = await axios.post(
+      "http://localhost:8080/doctor/appointment",
+      {
+        disease,
+        location,
+        doctor: selectedDoctor,
+        timestamp: dateTime,
+      }
+    );
     // Add your appointment scheduling logic here
-    alert('Appointment Scheduled!');
+    console.log(data.appointment);
+    alert(`Appointment Scheduled with id: ${data.appointment}`);
   };
 
   return (
@@ -90,10 +105,7 @@ function BookAppointment() {
               />
             </label>
           </div>
-          <button
-            className="submit-button"
-            onClick={handleSubmit}
-          >
+          <button className="submit-button" onClick={handleSubmit}>
             Book Appointment
           </button>
         </div>
